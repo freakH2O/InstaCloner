@@ -26,7 +26,6 @@ try:
     us.send_keys(u)
     passs = browser.find_element_by_name('password')
     passs.send_keys(p, Keys.ENTER)
-    time.sleep(5)
 except Exception:
     relay=True
 
@@ -209,11 +208,11 @@ relay=True
 g=posta
 i=1
 while i<=posta:
-    with open(str(g) + '.txt', 'r') as myfile:
+    with open(str(g) + '.txt', 'r',encoding='utf-8') as myfile:
         desc = myfile.read()
         myfile.close()
 
-    browser.get('https://www.instagram.com/'+usernama)
+    browser.get('https://www.instagram.com/'+u)
     time.sleep(15)
     #pyautogui.click(826,226)  # clicking on extension
     extension = browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/div[1]/div[2]/button')
@@ -228,19 +227,14 @@ while i<=posta:
     time.sleep(1)
     pyautogui.hotkey('enter')
     time.sleep(5)
-    #pyautogui.click(818, 426)  # clicking on next image button
-    nextbut=browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/div[1]/button[2]')
-    nextbut.click()
-
+    pyautogui.click(818, 426)  # clicking on next image button
     time.sleep(45)
     pyautogui.click(614,468)#clicking caption field
     time.sleep(1)
 
     pyautogui.typewrite(desc)
     time.sleep(3)
-    #pyautogui.click(815, 423)  # clicking next button
-    nextbut = browser.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[1]/div[1]/button[2]')
-    nextbut.click()
+    pyautogui.click(815, 423)  # clicking next button
     time.sleep(10)
     g=g-1
     
